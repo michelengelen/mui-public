@@ -27,6 +27,7 @@ module.exports = async ({ core, context, github }) => {
     const repo = context.repo.repo;
     const issueNumber = context.issue.number;
 
+    core.info('>>> Starting issue body cleanup');
     const issue = await github.rest.issues.get({
       owner,
       repo,

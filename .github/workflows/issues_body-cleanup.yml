@@ -31,6 +31,8 @@ jobs:
         id: cleanup
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         with:
+          retries: 3
+          retry-exempt-status-codes: 400,401
           script: |
             const script = require('./.github/workflows/scripts/issues/bodyCleanup.js')
             await script({core, github, context})
